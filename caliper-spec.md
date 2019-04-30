@@ -5261,12 +5261,15 @@ http://purl.imsglobal.org/caliper/SoftwareApplication
 | type | [Term](#termDef) | The string value MUST be set to the [Term](#termDef) *SoftwareApplication*. | Required |
 | name | string | A string value comprising a word or phrase by which the [SoftwareApplication](#softwareApplication) is known. | Optional |
 | description | string |  A string value comprising a brief, written representation of the [SoftwareApplication](#softwareApplication). | Optional |
+| host | string | Identifying string for the host of this software application. This field can be used to indicate the back-end service or domain hosting a front-end web application, for example. | Optional |
+| ipAddress | string | String with a value that, if present, can indicate the IPv4 or IPv6 address of this software application. This field can be used to indicate the user agent (browser) running a front-end web application, for example. | Optional |
+| userAgent | string | String with a value that describes the characterizes the properties of the user agent hosting this software application. This field can be used to carry the user agent string reported by the browser running a front-end web application, for example. | Optional |
 | dateCreated | DateTime | An ISO 8601 date and time value expressed with millisecond precision that describes when the [SoftwareApplication](#softwareApplication) was created.  The value MUST be expressed using the format YYYY-MM-DDTHH:mm:ss.SSSZ set to UTC with no offset specified. | Optional |
 | dateModified | DateTime | An ISO 8601 date and time value expressed with millisecond precision that describes when the [SoftwareApplication](#softwareApplication) was last changed or modified.  The value MUST be expressed using the format YYYY-MM-DDTHH:mm:ss.SSSZ set to UTC with no offset specified. | Optional |
 | version | string | An optional string value that designates the current form or version of this [SoftwareApplication](#softwareApplication). | Optional |
 | extensions | Object | A map of additional attributes not defined by the model MAY be specified for a more concise representation of the [SoftwareApplication](#softwareApplication). | Optional |
 
-#### Example
+#### Example: Back-End Application
 ```
 {
   "@context": "http://purl.imsglobal.org/ctx/caliper/v1p1",
@@ -5276,6 +5279,17 @@ http://purl.imsglobal.org/caliper/SoftwareApplication
   "description": "Automates assignment scoring.",
   "version": "2.5.2"
 }
+```
+
+#### Example: Front-End Browser Application
+```
+  "@context": "http://purl.imsglobal.org/ctx/caliper/v1p2",
+  "id": "urn:uuid:d71016dc-ed2f-46f9-ac2c-b93f15f38fdc",
+  "type": "SoftwareApplication",
+  "host": "https://example.edu",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
+  "ipAddress": "2001:0db8:85a3:0000:0000:8a2e:0370:7334"
+
 ```
 
 ### <a name="tagAnnotation"></a>C.44 TagAnnotation
