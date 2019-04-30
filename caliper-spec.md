@@ -5149,6 +5149,7 @@ http://purl.imsglobal.org/caliper/Session
 | name | string | A string value comprising a word or phrase by which the [Session](#session) is known. | Optional |
 | description | string |  A string value comprising a brief, written representation of the [Session](#session). | Optional |
 | user | [Person](#person) | The [Person](#person) who initiated the [Session](#session). | Optional |
+| client | [SoftwareApplication](#softwareApplication) | The [SoftwareApplication](#softwareApplication) that is hosting the [Session](#session). | Optional |
 | dateCreated | DateTime | An ISO 8601 date and time value expressed with millisecond precision that describes when the [Session](#session) was created.  The value MUST be expressed using the format YYYY-MM-DDTHH:mm:ss.SSSZ set to UTC with no offset specified. | Optional |
 | dateModified | DateTime | An ISO 8601 date and time value expressed with millisecond precision that describes when the [Session](#session) was last changed or modified.  The value MUST be expressed using the format YYYY-MM-DDTHH:mm:ss.SSSZ set to UTC with no offset specified. | Optional |
 | startedAtTime | DateTime | An ISO 8601 date and time value expressed with millisecond precision that describes when the [Session](#session) was commenced.  The value MUST be expressed using the format YYYY-MM-DDTHH:mm:ss.SSSZ set to UTC with no offset specified. | Optional |
@@ -5169,14 +5170,21 @@ The following [Session](#session) properties have been DEPRECATED and MUST NOT b
 #### Example
 ```
 {
-  "@context": "http://purl.imsglobal.org/ctx/caliper/v1p1",
+  "@context": "http://purl.imsglobal.org/ctx/caliper/v1p2",
   "id": "https://example.edu/sessions/1f6442a482de72ea6ad134943812bff564a76259",
   "type": "Session",
   "user": {
     "id": "https://example.edu/users/554433",
     "type": "Person"
   },
-  "startedAtTime": "2018-09-15T10:00:00.000Z"
+  "client": {
+    "id": "urn:uuid:d71016dc-ed2f-46f9-ac2c-b93f15f38fdc",
+    "type": "SoftwareApplication",
+    "host": "https://example.edu",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
+    "ipAddress": "2001:0db8:85a3:0000:0000:8a2e:0370:7334"
+  },
+  "startedAtTime": "2016-09-15T10:00:00.000Z"
 }
 ```
 
